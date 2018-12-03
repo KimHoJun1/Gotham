@@ -63,6 +63,17 @@ function drawGraph2(){
 }
 drawGraph2();
 
+function newsAlarm() {
+	setInterval(function() {
+		$.getJSON('newsjson.jsp', function(data) {
+			$.each(data, function(key, value) {
+				$('#news').text(value);
+			});
+		});
+	}, 2000)
+};
+
+
 // 2. Address search
 // 2-1. Dropdown setting
 $('.dropdown ul li a').click(function() {
@@ -346,4 +357,5 @@ $(document).ready(function() {
 //	fireAlarm();
 //	accidentAlarm();
 	sidebarHeight();
+	newsAlarm();
 });

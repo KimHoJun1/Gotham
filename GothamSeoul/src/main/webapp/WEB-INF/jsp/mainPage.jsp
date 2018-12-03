@@ -11,6 +11,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     
 	<title>서울 재난정보 플랫폼 - main</title>
+	<script src="http://code.jquery.com/jquery-2.1.3.min.js"></script>
 	
 	<!-- CSS link -->
 	<!-- Bootstrap CSS -->
@@ -150,11 +151,11 @@
 				</div>
 				<div class="row" id="alarm_container">
 					<div class="col-sm-2" id="alarm_icon">
-						<i class="fas fa-volume-up fa-2x"></i></i>
+						<i class="fas fa-volume-up fa-2x"></i>
 						<p>긴급알림</p>
 					</div>
 					<div class="col-sm-10 alarm_content" id="alarm_1">
-						<p>감기가능지수</p>
+						<p id="news">................</p>
 					</div>
 				</div>
 				<div class="embed-responsive embed-responsive-16by9" id="map_container">
