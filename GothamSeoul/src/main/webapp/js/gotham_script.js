@@ -20,6 +20,24 @@ function drawLeaflet(lat, lng) {
 		type: "get",
 		success: function(data) {
 			$('#map_container iframe').attr("src", "leafletchart/index.html");
+			if(data.comm == "맑음" | data.comm == "화창" ) {
+				$('#commimg').attr("src","image/icon01.png"); 
+			} else if(data.comm == "대체로 맑음" | data.comm == "대체로 화창" | data.comm == "대체로 흐림" | data.comm == "오전 구름/오후 화창") {
+				$('#commimg').attr("src","image/icon02.png"); 	
+			} else if(data.comm == "흐림" ) {
+				$('#commimg').attr("src","image/icon03.png"); 
+			} else if(data.comm.includes("천둥") == true ) {
+				$('#commimg').attr("src","image/icon04.png");	
+			} else if(data.comm == "한두 차례 소나기" | data.comm == "가벼운 비" ) {
+				$('#commimg').attr("src","image/icon05.png"); 
+			} else if(data.comm.includes("비") == true | data.comm.includes("소나기") == true ) {
+				$('#commimg').attr("src","image/icon06.png"); 	
+			} else if(data.comm == "오전 가벼운 비" ) {
+				$('#commimg').attr("src","image/icon07.png"); 
+			} else if(data.comm.includes("눈") == true ) {
+				$('#commimg').attr("src","image/icon08.png"); 
+			}else {
+				$('#commimg').attr("src","image/icon00.png"); }
 			$('#comm').html(data.comm);
 			$('#temp').html(data.temp+'°C');
 			$('#w_graph1').attr("src","/test1.jpg");
