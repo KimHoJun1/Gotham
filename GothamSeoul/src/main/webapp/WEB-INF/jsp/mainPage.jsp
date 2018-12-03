@@ -11,6 +11,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     
 	<title>서울 재난정보 플랫폼 - main</title>
+	<script src="http://code.jquery.com/jquery-2.1.3.min.js"></script>
 	
 	<!-- CSS link -->
 	<!-- Bootstrap CSS -->
@@ -150,11 +151,11 @@
 				</div>
 				<div class="row" id="alarm_container">
 					<div class="col-sm-2" id="alarm_icon">
-						<i class="fas fa-volume-up fa-2x"></i></i>
+						<i class="fas fa-volume-up fa-2x"></i>
 						<p>긴급알림</p>
 					</div>
 					<div class="col-sm-10 alarm_content" id="alarm_1">
-						<p>감기가능지수</p>
+						<p id="news">................</p>
 					</div>
 				</div>
 				<div class="embed-responsive embed-responsive-16by9" id="map_container">
@@ -167,6 +168,8 @@
 				    <br><br><br><br>
 				    <div>현재 상태 : <div id="comm"></div></div>
 				    <div>현재 온도 : <div id="temp"></div></div>
+					<img id="weather_graph1" src="" width="400" height="300">
+					<img id="weather_graph2" src="" width="400" height="300">
 				</div>
 				<div id="report_container_2">
 				화재/사고 보고서

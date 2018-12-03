@@ -10,7 +10,7 @@ public class WeatherGraph {
 		try {
 			r = new RConnection();
 			
-			r.eval("setwd('" + path + "/r/')"); 
+			r.eval("setwd('c:/Rstudy/exam1/')");
 //			r.eval("setwd('C:/Users/student/git/Gotham/GothamSeoul/src/main/webapp/r/')");
 			r.eval("jpeg('test1.jpg')");
 			r.eval("source(file='kw01.R', encoding='UTF-8')");
@@ -32,7 +32,8 @@ public class WeatherGraph {
 		byte retImg [] = null;
 		try {
 			r = new RConnection();
-			r.eval("setwd('" + path + "/r/')"); 
+			r.eval("setwd('c:/Rstudy/exam1/')");
+//			r.eval("setwd('" + path + "/r/')"); 
 //			r.eval("setwd('C:/Users/student/git/Gotham/GothamSeoul/src/main/webapp/r/')");
 			r.eval("jpeg('test2.jpg')");
 			r.eval("source(file='kw02.R', encoding='UTF-8')");

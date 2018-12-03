@@ -39,6 +39,40 @@ function drawGraph(){
 	});
 }
 
+function drawGraph1(){
+	$.ajax({
+		url: "/GothamSeoul/wgraph1.do?",
+		type: "get",
+		success: function(data) {
+//			alert("data:image/jpg;base64, " + data);
+			$('#weather_graph1').attr("src", "data:image/jpg;base64, "+ data);
+		}
+	});
+}
+drawGraph1();
+
+function drawGraph2(){
+	$.ajax({
+		url: "/GothamSeoul/wgraph2.do?",
+		type: "get",
+		success: function(data) {
+//			alert("data:image/jpg;base64, " + data);
+			$('#weather_graph2').attr("src", "data:image/jpg;base64, "+ data);
+		}
+	});
+}
+drawGraph2();
+
+function newsAlarm() {
+	setInterval(function() {
+		$.getJSON('newsjson.jsp', function(data) {
+			$.each(data, function(key, value) {
+				$('#news').text(value);
+			});
+		});
+	}, 2000)
+};
+
 
 // 2. Address search
 // 2-1. Dropdown setting
@@ -321,6 +355,8 @@ $(document).ready(function() {
 	tabClick2();
 	getAddress();
 //	fireAlarm();
-	accidentAlarm();
+//	accidentAlarm();
 	sidebarHeight();
+	newsAlarm();
+
 });
