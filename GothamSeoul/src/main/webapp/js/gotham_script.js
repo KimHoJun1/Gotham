@@ -153,7 +153,7 @@ function tabClick2() {
 		$('.index_content span').each(function() {
 			$(this).html('<i class="fas fa-spinner fa-spin"></i>').css({color: "black"});
 		});
-		lifeIndex();
+//		lifeIndex();
 		$('#report_container_1').show();
 		$('#report_container_2').hide();
 		$('#report_container_3').hide();
@@ -172,7 +172,7 @@ function tabClick2() {
 		$('.index_content span').each(function() {
 			$(this).html('<i class="fas fa-spinner fa-spin"></i>').css({color: "black"});
 		});
-		healthIndex();
+//		healthIndex();
 		$('#report_container_1').hide();
 		$('#report_container_2').hide();
 		$('#report_container_3').show();
@@ -234,7 +234,7 @@ function fireAlarm() {
 		}
 	});
 };
-
+ 
 // 6-3. Life Index
 function lifeIndex() {
 	$('#index_icon p').text("오늘의 생활지수")
@@ -321,6 +321,6 @@ $(document).ready(function() {
 	tabClick2();
 	getAddress();
 //	fireAlarm();
-//	accidentAlarm();
+	accidentAlarm();
 	sidebarHeight();
 });

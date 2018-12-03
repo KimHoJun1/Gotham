@@ -79,12 +79,26 @@ public class MainController {
 		
 	    ModelAndView mav = new ModelAndView();
 	    
-		Map<String, String> resultMap = ac.accidentCrawler();
-		
-		System.out.println("Main Controller : " + resultMap.get("1"));
-		
-		mav.addAllObjects(resultMap);
+		JSONArray resultArray = ac.accidentCrawler();
+				
+		mav.addObject("result", resultArray);
 		mav.setViewName("jsonView");
+	    
+		
+//	    JSONArray resultArray = ac.fireCrawler();
+//		
+//		String real_path = request.getSession().getServletContext().getRealPath("/");
+//	    real_path = real_path.replace("\\", "/");
+//	    System.out.println(real_path);
+//        FileWriter file = new FileWriter(real_path + "/dataset/accidentAlarm.json");
+//        file.write(resultArray.toJSONString());
+//        file.flush();
+//		
+//		mav.addObject("result", resultArray);
+//		mav.setViewName("jsonView");
+	    
+	    
+	    
 				
 	    return mav;
 	}
@@ -99,7 +113,7 @@ public class MainController {
 				
 		String real_path = request.getSession().getServletContext().getRealPath("/");
 	    real_path = real_path.replace("\\", "/");
-
+	    System.out.println(real_path);
         FileWriter file = new FileWriter(real_path + "/dataset/fireAlarm.json");
         file.write(resultArray.toJSONString());
         file.flush();
@@ -140,8 +154,11 @@ public class MainController {
 	
 	@RequestMapping(produces="text/plain; charset=utf-8")
 	@ResponseBody
-	public String graphy() {		
-		return Base64.getEncoder().encodeToString(rc.graphy());
+	public String graphy(HttpServletRequest request) {		
+		String real_path = request.getSession().getServletContext().getRealPath("/");
+	    real_path = real_path.replace("\\", "/");
+
+		return Base64.getEncoder().encodeToString(rc.graphy(real_path));
 	}
 	
 }
