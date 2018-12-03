@@ -49,7 +49,6 @@ function drawGraph1(){
 		}
 	});
 }
-drawGraph1();
 
 function drawGraph2(){
 	$.ajax({
@@ -61,7 +60,6 @@ function drawGraph2(){
 		}
 	});
 }
-drawGraph2();
 
 function newsAlarm() {
 	setInterval(function() {
@@ -352,11 +350,13 @@ function healthIndex() {
 $(document).ready(function() {
 	getCurrentLocation();
 	tabClick1();
-	tabClick2();
+	tabClick2(); 
 	getAddress();
 //	fireAlarm();
-//	accidentAlarm();
+	accidentAlarm();
 	sidebarHeight();
-	newsAlarm();
+//	newsAlarm();
+//	drawGraph1();
+//	drawGraph2();
 
 });

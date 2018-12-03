@@ -35,9 +35,9 @@ public class MainController {
 	@Autowired
 	Weather wt;
 	
-	@Autowired
-	WeatherGraph wg;
-	
+//	@Autowired
+//	WeatherGraph wg;
+	 
 	@Autowired
 	AlarmCrawler ac;
 	
@@ -60,12 +60,12 @@ public class MainController {
 	    real_path = real_path.replace("\\", "/");
 
 		String result = rc.returnLeaflet2(real_path, lat, lng);
-		mav.addObject("leafletChartName", "http://localhost:8080/GothamSeoul/leafletchart/"+result);
+		mav.addObject("leafletChartName", "http://localhost:8000/GothamSeoul/leafletchart/"+result);
 		mav.addObject("temp", wt.returnTemp(lat, lng));
 		mav.addObject("comm", wt.returnComm(lat, lng));
 		
-		mav.addObject("w_graph1", wg.returnWG1(real_path));
-		mav.addObject("w_graph2", wg.returnWG2(real_path));
+//		mav.addObject("w_graph1", wg.returnWG1(real_path));
+//		mav.addObject("w_graph2", wg.returnWG2(real_path));
 
 		mav.setViewName("jsonView");
 				
@@ -81,25 +81,19 @@ public class MainController {
 	    
 		JSONArray resultArray = ac.accidentCrawler();
 				
+//		mav.addObject("result", resultArray);
+//		mav.setViewName("jsonView");
+	    		
+		String real_path = request.getSession().getServletContext().getRealPath("/");
+	    real_path = real_path.replace("\\", "/");
+	    System.out.println(real_path);
+        FileWriter file = new FileWriter(real_path + "/dataset/accidentAlarm.json");
+        file.write(resultArray.toJSONString());
+        file.flush();
+		
 		mav.addObject("result", resultArray);
 		mav.setViewName("jsonView");
 	    
-		
-//	    JSONArray resultArray = ac.fireCrawler();
-//		
-//		String real_path = request.getSession().getServletContext().getRealPath("/");
-//	    real_path = real_path.replace("\\", "/");
-//	    System.out.println(real_path);
-//        FileWriter file = new FileWriter(real_path + "/dataset/accidentAlarm.json");
-//        file.write(resultArray.toJSONString());
-//        file.flush();
-//		
-//		mav.addObject("result", resultArray);
-//		mav.setViewName("jsonView");
-	    
-	    
-	    
-				
 	    return mav;
 	}
 	
@@ -161,20 +155,20 @@ public class MainController {
 		return Base64.getEncoder().encodeToString(rc.graphy(real_path));
 	}
 	
-	@RequestMapping(produces="text/plain; charset=utf-8")
-	@ResponseBody
-	public String wgraph1(HttpServletRequest request) {
-		String real_path = request.getSession().getServletContext().getRealPath("/");
-	    real_path = real_path.replace("\\", "/");
-		return Base64.getEncoder().encodeToString(wg.returnWG1(real_path));
-	}
-	
-	@RequestMapping(produces="text/plain; charset=utf-8")
-	@ResponseBody
-	public String wgraph2(HttpServletRequest request) {
-		String real_path = request.getSession().getServletContext().getRealPath("/");
-	    real_path = real_path.replace("\\", "/");
-		return Base64.getEncoder().encodeToString(wg.returnWG2(real_path));
-	}
-	
+//	@RequestMapping(produces="text/plain; charset=utf-8")
+//	@ResponseBody
+//	public String wgraph1(HttpServletRequest request) {
+//		String real_path = request.getSession().getServletContext().getRealPath("/");
+//	    real_path = real_path.replace("\\", "/");
+//		return Base64.getEncoder().encodeToString(wg.returnWG1(real_path));
+//	}
+//	
+//	@RequestMapping(produces="text/plain; charset=utf-8")
+//	@ResponseBody
+//	public String wgraph2(HttpServletRequest request) {
+//		String real_path = request.getSession().getServletContext().getRealPath("/");
+//	    real_path = real_path.replace("\\", "/");
+//		return Base64.getEncoder().encodeToString(wg.returnWG2(real_path));
+//	}
+//	
 }
