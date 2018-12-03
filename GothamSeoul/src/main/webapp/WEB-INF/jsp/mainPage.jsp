@@ -164,12 +164,12 @@
 				<div id="report_container_1">
 					<p class="weather-title">현재 위치 날씨</p>
 				    <hr>
-				    <div>상태 이미지</div>
-				    <br><br><br><br>
+				    <div>상태 이미지 : <br><img id="commimg"></div>
+				    <br>
 				    <div>현재 상태 : <div id="comm"></div></div>
 				    <div>현재 온도 : <div id="temp"></div></div>
-					<img id="weather_graph1" src="" width="400" height="300">
-					<img id="weather_graph2" src="" width="400" height="300">
+					<img id="w_graph1" src= ${w_graph1} width="400" height="300">
+					<img id="w_graph2" src= ${w_graph2} width="400" height="300">
 				</div>
 				<div id="report_container_2">
 				화재/사고 보고서

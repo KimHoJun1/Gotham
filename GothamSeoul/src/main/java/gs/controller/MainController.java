@@ -64,8 +64,12 @@ public class MainController {
 		mav.addObject("temp", wt.returnTemp(lat, lng));
 		mav.addObject("comm", wt.returnComm(lat, lng));
 		
-//		mav.addObject("w_graph1", wg.returnWG1(real_path));
-//		mav.addObject("w_graph2", wg.returnWG2(real_path));
+
+//		mav.addObject("w_graph1", Base64.getEncoder().encodeToString(wg.returnWG1(real_path)));
+//		mav.addObject("w_graph2", Base64.getEncoder().encodeToString(wg.returnWG2(real_path)));
+		
+		
+
 
 		mav.setViewName("jsonView");
 				
@@ -154,6 +158,7 @@ public class MainController {
 
 		return Base64.getEncoder().encodeToString(rc.graphy(real_path));
 	}
+
 	
 //	@RequestMapping(produces="text/plain; charset=utf-8")
 //	@ResponseBody
@@ -171,4 +176,5 @@ public class MainController {
 //		return Base64.getEncoder().encodeToString(wg.returnWG2(real_path));
 //	}
 //	
+
 }
