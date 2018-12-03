@@ -144,4 +144,16 @@ public class MainController {
 		return Base64.getEncoder().encodeToString(rc.graphy());
 	}
 	
+	@RequestMapping(produces="text/plain; charset=utf-8")
+	@ResponseBody
+	public String wgraph1() {
+		return Base64.getEncoder().encodeToString(wg.returnWG1());
+	}
+	
+	@RequestMapping(produces="text/plain; charset=utf-8")
+	@ResponseBody
+	public String wgraph2() {
+		return Base64.getEncoder().encodeToString(wg.returnWG2());
+	}
+	
 }
