@@ -22,7 +22,7 @@ function drawLeaflet(lat, lng) {
 			$('#map_container iframe').attr("src", "leafletchart/index.html");
 			if(data.comm == "맑음" | data.comm == "화창" ) {
 				$('#commimg').attr("src","image/icon01.png"); 
-			} else if(data.comm == "대체로 맑음" | data.comm == "대체로 화창" | data.comm == "대체로 흐림" | data.comm == "오전 구름/오후 화창") {
+			} else if(data.comm == "대체로 맑음" | data.comm == "대체로 화창" | data.comm == "대체로 흐림" | data.comm == "오전 구름/오후 화창" | data.comm.includes("구름 조금") == true ) {
 				$('#commimg').attr("src","image/icon02.png"); 	
 			} else if(data.comm == "흐림" ) {
 				$('#commimg').attr("src","image/icon03.png"); 
@@ -42,7 +42,9 @@ function drawLeaflet(lat, lng) {
 			$('#temp').html(data.temp+'°C');
 			$('#w_graph1').attr("src","/test1.jpg");
 			$('#w_graph2').attr("src","/test2.jpg");
+			alert(data.comm);
 		}
+	
 	});
 };
 
